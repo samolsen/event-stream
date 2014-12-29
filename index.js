@@ -298,6 +298,7 @@ es.wait = function (callback) {
     function () {
       var body = Buffer.isBuffer(arr[0]) ? Buffer.concat(arr)
         : arr.join('')
+      body = String(body)
       this.emit('data', body)
       this.emit('end')
       if(callback) callback(null, body)
